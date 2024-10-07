@@ -1,0 +1,7 @@
+https://blog.geekhunter.com.br/orquestracao-de-conteineres-docker-swarm-portainer/
+
+https://fabriciosanchez.azurewebsites.net/3/distribuindo-containers-com-docker-swarm-parte-1/
+
+https://docs.docker.com/desktop/
+
+https://medium.com/@fidelissauro/docker-swarm-quickstart-do-seu-cluster-local-com-docker-machine-e-virtualbox-44d4096deae

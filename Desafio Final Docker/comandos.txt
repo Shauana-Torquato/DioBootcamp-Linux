@@ -1,0 +1,83 @@
+CRIANDO UM CONTAINER COM MYSQL SERVER COM DOCKER E CONECTAR NO WORKBENCH - LINUX
+
+- em caso do docker não estar instalado ainda 
+	(abrir terminal para atualização de pacotes)
+	
+	sudo apt-get update
+
+	(instalação de pacotes)
+
+	sudo apt-get install \
+    		apt-transport-https \
+    		ca-certificates \
+    		curl \
+   	 	gnupg-agent \
+    		software-properties-common
+
+	(GPG key oficial do Docker)
+
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+	
+	(adição de repositório)
+
+	sudo add-apt-repository \
+   		"deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   		$(lsb_release -cs) \
+   		stable"
+
+	(atualizar pacotes e adicionar o docker Engine)
+
+	sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+obs: para evitar utilização excessiva do SUDO:
+
+criar grupo docker e adicionar o user no grupo
+
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
+$ newgrp docker
+
+obs: abrir e fechar o terminal para rodar o DOCKER RUN HELLO-WORLD como teste
+
+- criando container com MySQL Server
+
+	docker run -p 3306:3306 --name=seu-container -d mysql/mysql-server
+
+obs: Esse comando roda um container chamado “seu-container” a partir de uma imagem do MySQL Server e mapeia a porta 3306 do container com a sua de mesmo número. 
+
+obs: Dê um DOCKER PS e veja o que tem rodando na sua máquina.
+
+
+- conectando no MySQL Server e configurando a senha
+
+	(senha randômica)
+	
+	docker logs seu-container 2>&1 | grep GENERATED
+
+	
+	(copiar a root password e rodar comando)
+		
+	docker exec -it seu-container mysql -uroot -p
+
+	
+	(paste password + enter, digitar)
+
+	ALTER USER 'root'@'localhost' IDENTIFIED BY '12345';
+
+	
+	(altera senha padrão do user para 12345, aplicar:)
+
+	update mysql.user set host = '%' where user='root';
+
+
+obs: Esse comando vai permitir que você conecte o Workbench no container. 
+
+obs: Dê um ctrl-D e depois um docker restart seu-container.
+
+
+- conectando no MySQL Workbench
+
+	(ir ao MySQL Workbench e clicar na instância local para então colocar a senha)
+
+fonte: https://dev.to/nfo94/como-criar-um-container-com-mysql-server-com-docker-e-conecta-lo-no-workbench-linux-1blf#:~:text=Criando%20container%20com%20MySQL%20Server&text=Esse%20comando%20roda%20um%20container,tem%20rodando%20na%20sua%20m%C3%A1quina.
