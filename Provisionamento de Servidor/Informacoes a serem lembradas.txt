@@ -1,0 +1,12 @@
+mkdir nomedorepositorio
+
+chmode +x nomedoarquivo.sh
+
+nano nomedoarquivo.sh (abre o editor nano)
+
+ctrl o = para salvar
+ctrl x = para fechar
+
+./nomedoarquivo.sh = para executar
+
+-y sim para todas as perguntas
