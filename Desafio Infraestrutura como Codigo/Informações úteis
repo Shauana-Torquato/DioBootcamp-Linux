@@ -1,0 +1,11 @@
+Simulador online e alguns comandos básicos
+http://www.dicasparacomputador.com/execute-comandos-linux-qualquer-computador-navegador
+
+Emulador Linux Online
+http://bellard.org/jslinux/
+
+Verificar versão instalada
+    nano --version
+    
+Instalar
+    sudo apt-get install nano

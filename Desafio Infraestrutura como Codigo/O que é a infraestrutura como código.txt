@@ -1,0 +1,5 @@
+# A Infraestrutura como Código
+
+<p>Infraestrutura como código - IaC - é o gerenciamento e o provisionamento da infraestrutura por meio de códigos (substituição de processos manuais) <br>
+<p>Com IaC são criados arquivos de configuração que incluem as especificações da sua infraestrutura, facilitando a edição e a distribuição de configurações. <br>
+Ela também assegura o provisionamento do mesmo ambiente todas as vezes.

@@ -1,0 +1,73 @@
+RETIRADO DO SITE: RECEITASDECODIGO.COM.BR 
+
+https://receitasdecodigo.com.br/devops/como-criar-um-shell-script-no-linux#:~:text=Passando%20par%C3%A2metros%20para%20um%20Shell%20Script&text=Digite%3A%20vi%20useparams.sh%20%2C,.sh%20%22Wolmir%20Garbin%22%20.
+
+1 - Regras para criar um arquivo Shell Script. 
+
+A primeira delas é ter na primeira linha o conteúdo: #!/bin/bash
+A partir da próxima linha, tudo que estiver contido no arquivo será uma instrução ou comando, ou ainda parte de uma instrução maior como por exemplo: um loop.
+Note que, caso quiser adicionar comentários no arquivo, inicie a linha com o caracter: #.
+
+2 - Criando o primeiro arquivo Shell Script
+Com o terminal aberto, criar um novo arquivo - pode ser em qualquer diretório
+
+INSTRUÇÕES:
+
+vi nomedoarquivo.sh
+        extenção sh.
+
+Tecle i para entrar em modo de edição e digite: #!/bin/bash. 
+Na sequencia tecle Enter (Duas vezes). 
+Digite o seguinte: echo "Executado arquivo bash". O arquivo ficará assim:
+
+        #!/bin/bash
+
+        echo "Executado arquivo bash"
+        
+Em seguida tecle Esc e digite :wq e tecle Enter. O primeiro arquivo foi criado, agora vamos executar este arquivo.
+
+Note, para executar é necessário dar permissão de execução.
+
+Digite:
+
+chmod +x nomedoarquivo.sh
+Em seguida digite:
+
+./nomedoarquivo.sh
+Será apresentado o seguinte texto em seu terminal: Executado arquivo bash.
+
+Passando parâmetros para um Shell Script
+Vamos melhorar nosso exemplo, passando alguns parâmetros para execução do nosso arquivo.
+
+Digite: vi useparams.sh, tecle i e insira o conteúdo:
+
+#!/bin/bash
+
+echo "Name: $1";
+Em seguida tecle Esc e digite :wq e tecle Enter. Para executar o arquivo digite: chmod +x useparams.sh e em seguida: ./useparams.sh "Wolmir Garbin".
+
+O resultado será:
+
+Name: Wolmir Garbin
+Passando parâmetros com flag para um Shell Script
+Além de ser uma opção melhor e mais elegante, usando flags podemos criar arquivos para execuções mais complexas, veja:
+
+Digite: vi useflags.sh, tecle i e insira o conteúdo:
+
+#!/bin/bash
+
+while getopts u:a: flag
+do
+    case "${flag}" in
+        u) name=${OPTARG};;
+        a) age=${OPTARG};;
+    esac
+done
+echo "Name: $name";
+echo "Age: $age";
+Em seguida tecle Esc e digite :wq e tecle Enter. Para executar o arquivo digite: chmod +x useflags.sh e em seguida: ./useflags.sh -a 35 -u wolmir.
+
+Note que com o uso de flag podemos usar o hifen (-) para informar qual valor queremos informar para a execução do Shell Script.
+
+
+facebook sharing button
