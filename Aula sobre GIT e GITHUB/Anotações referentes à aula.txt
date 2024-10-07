@@ -1,0 +1,5 @@
+Ao trabalhar com o git bash, quando aciono o git push origin main, 
+abre uma janela pedindo meu usuário do github e logo em seguida a senha.
+Essa senha é um token que foi gerada no settings, ela pode ser visualizada
+apenas uma vez, caso contrário deverá ser gerada novamente (por isso 
+salvei meu acesso token).
